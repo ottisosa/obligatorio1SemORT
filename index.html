@@ -1,0 +1,275 @@
+<!-- 
+  Autores: Octavio Sosa (363131) - Alan Klein(358518)
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obligatorio P1</title>
+    <link rel="stylesheet" href="css/estilos.css">
+
+    <!-- Script para la impresion de PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <!-- Mapa de google charts map -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script src="js/clases.js"></script>
+    <script src="js/funciones.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <h2> Sitio de Corredores</h2>
+
+        <img src="img/imagen.jpeg" alt="imagen de deportes">
+
+        <nav>
+            <input type="button" value="Datos" name="ver" id="datos" class="botonSeleccionado">
+            <input type="button" value="Estadisticas" name="ver" id="estadisticas" class="ver">
+        </nav>
+
+    </header>
+
+    <section id="sectionDatos">
+
+
+        <h3> Datos </h3>
+
+        <article>
+
+            <form id="formCarreras">
+                <h4> Carreras </h4>
+
+
+                <label for="nomTxt">Nombre:</label>
+                <input type="text" id="nomTxt" required>
+
+                <label for="selectDep"> Departamento:</label>
+                <select id="selectDep">
+                    <option value="1">Montevideo</option>
+                    <option value="2">Canelones</option>
+                    <option value="3">Maldonado</option>
+                    <option value="4">Rocha</option>
+                    <option value="5">Treinta y Tres</option>
+                    <option value="6">Cerro Largo</option>
+                    <option value="7">Rivera</option>
+                    <option value="8">Artigas</option>
+                    <option value="9">Salto</option>
+                    <option value="10">Paysandú</option>
+                    <option value="11">Río Negro</option>
+                    <option value="12">Soriano</option>
+                    <option value="13">Colonia</option>
+                    <option value="14">San José</option>
+                    <option value="15">Flores</option>
+                    <option value="16">Florida</option>
+                    <option value="17">Lavalleja</option>
+                    <option value="18">Durazno</option>
+                    <option value="19">Tacuarembó</option>
+
+                </select>
+
+                <label for="FechaCarr">Fecha:</label>
+                <input id="FechaCarr" type="date" required>
+
+                <label for="CupoCarr"> Cupo:</label>
+                <input type="number" id="CupoCarr" max="1000" value="30" min="1" required>
+                <input type="submit" class="btnInputs" id="btnAgregarC" value="Agregar Carrera">
+
+            </form>
+        </article>
+
+
+        <article>
+
+            <form id="formPatrocinadores">
+
+                <h4>Patrocinadores</h4>
+
+                <label for="nomPat">Nombre:</label>
+                <input type="text" id="nomPat" required>
+
+                <label for="rubPat">Rubro:</label>
+                <select id="rubPat">
+                    <option value="1">Alimenticio</option>
+                    <option value="2">Banco</option>
+                    <option value="3">Bebidas</option>
+                    <option value="4">Farmacia</option>
+                    <option value="5">Ropa Deportiva</option>
+                    <option value="6">Estatal</option>
+                    <option value="7">General</option>
+
+                </select>
+
+                <label>Carreras:</label>
+
+
+                <select id="carreraSelect" multiple required>
+
+                </select>
+
+
+                <input type="submit" id="btnAgregarP" class="btnInputs" value="Agregar/Actualizar patrocinador">
+
+
+            </form>
+        </article>
+
+        <article>
+
+            <form id="formCorredores">
+                <h4> Corredores</h4>
+
+                <label for="compNom">Nombre:</label>
+                <input type="text" id="compNom" required>
+
+                <label for="compEdad">Edad:</label>
+                <input type="number" id="compEdad" min="18" max="150" required>
+
+                <label for="compCed">Cedula:</label>
+                <input type="text" id="compCed" required>
+
+
+                <label for="fechaVenComp">Fecha de vencimiento de ficha medica:</label>
+                <input id="fechaVenComp" class="bajaRenglon" type="date" required>
+
+                <label class="radioCorredor">Tipo de corredor :</label>
+
+                <input type="radio" id="elite" class="radioCorredor" name="radioDeportista" value="Elite">
+                <label for="elite" class="radioCorredor">Deportista de elite</label>
+
+                <input type="radio" id="comun" class="radioCorredor" name="radioDeportista" value="Comun" checked>
+                <label for="comun" class="radioCorredor">Deportista comun</label>
+
+                <input type="submit" class="btnInputs" id="btnAgregarCorr" value="Agregar Corredor">
+
+            </form>
+
+        </article>
+
+
+        <article>
+
+            <form id="formInscripciones">
+                <h4>Inscripciones</h4>
+
+                <label for="nomCorredores">Corredores</label>
+                <select id="nomCorredores"> </select>
+
+                <label for="nomCarreras">Carreras:</label>
+                <select id="nomCarreras"> </select>
+
+                <input type="submit" class="btnInputs" value="Inscribir" id="btnInscribir">
+
+            </form>
+
+        </article>
+    </section>
+
+    <section id="sectionEstadisticas">
+
+
+        <h3>Estadisticas</h3>
+
+        <article>
+
+
+            <h4>Datos generales</h4>
+
+            <label>Promedio de inscriptos por carrera: <span id="promInsc"></span></label>
+
+            <label> Carrera/s con mas inscriptos: </label>
+
+            <ul id="ulCarrMasInsc"></ul>
+
+            <label> Carrera/s sin inscriptos ordenadas por fecha: </label>
+
+            <ul id="ulCarrSinInsc"></ul>
+
+            <label> Porcentaje de corredores de elite: <span id="porcCorrElite"></span></label>
+
+
+        </article>
+
+
+        <article>
+
+            <h4> Consulta inscriptos</h4>
+
+            <form id="consultaInscriptos">
+
+                <label for="consultaCarrera">Carrera:</label>
+                <select id="consultaCarrera" class="bajaRenglon"> </select>
+
+                <label class="radioCorredor">Ordenar por:</label>
+
+                <input type="radio" name="ordenarPor" class="radioCorredor" id="radNomCorr" checked>
+                <label for="radNomCorr" class="radioCorredor">Nombre</label>
+
+                <input type="radio" name="ordenarPor" class="radioCorredor" id="radNumCorr">
+                <label for="radNumCorr" class="radioCorredor">Numero</label>
+
+            </form>
+
+            <table>
+                <caption> inscriptos</caption>
+
+                <tr>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                    <th>Cédula</th>
+                    <th>Ficha Médica</th>
+                    <th>Número</th>
+                </tr>
+                <tBody id="tablaCorredores">
+
+                </tBody>
+
+            </table>
+
+
+
+
+        </article>
+
+        <article>
+
+            <h4> Visualizar mapa: </h4>
+
+            <form id="mapa">
+
+                <input type="radio" name="verMapa" id="carrRadio" class="radioCorredor" checked>
+                <label for="carrRadio" class="radioCorredor">Por Carreras</label>
+
+                <input type="radio" name="verMapa" class="radioCorredor" id="inscripRadio">
+                <label for="inscripRadio" class="radioCorredor">Por Inscripcion</label>
+
+                <div id="mapaUru"></div>
+
+            </form>
+
+        </article>
+
+    </section>
+
+
+    <footer>
+
+        <p>Programación 1 - Obligatorio 1er semestre 2025 - Autores:</p>
+
+        <p>Grupo M1B - Octavio Sosa(363131) - <span><a
+                    href="https://aulas.ort.edu.uy/user/view.php?id=68189&course=4095" target="_blank">Ir
+                    hacia el perfil de estudiante</a></span></p>
+        <p>Grupo M1B - Alan Klein(358518) - <span><a href="https://aulas.ort.edu.uy/user/view.php?id=67422&course=4095"
+                    target="_blank">Ir
+                    hacia el perfil de estudiante</a></span></p>
+
+    </footer>
+
+</body>
+
+</html>

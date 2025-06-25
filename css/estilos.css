@@ -1,0 +1,134 @@
+/* 
+  Autores: Octavio Sosa (363131) - Alan Klein(358518)
+*/
+
+header {
+
+    text-align: center;
+
+
+}
+
+nav {
+    margin-top: 5px;
+    text-align: left;
+    margin-bottom: 10px;
+
+}
+
+section {
+
+    padding: 10px;
+    background-color: #D6FAD1;
+}
+
+
+article {
+
+    margin-bottom: 10px;
+
+    padding: 10px;
+    background-color: #00F26D;
+    border-radius: 10px;
+
+}
+
+#btnAgregarC {
+
+    width: 170px;
+
+}
+
+#carreraSelect {
+
+    width: auto;
+
+}
+
+.botonSeleccionado {
+
+    border-radius: 10px;
+    background-color: #187498;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+.ver {
+
+    border-radius: 10px;
+    background-color: #00F26D;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    cursor: pointer;
+
+}
+
+select {
+
+    width: auto;
+}
+
+.bajaRenglon {
+    display: block;
+
+
+}
+
+.radioCorredor {
+    display: inline-block;
+    margin-top: 5px;
+
+}
+
+#tabla {
+
+    margin-top: 20px;
+}
+
+.btnInputs {
+
+    display: block;
+    text-align: left;
+    width: auto;
+    text-align: center;
+
+}
+
+#promInsc {
+
+    margin-bottom: 10px;
+}
+
+label {
+
+    display: block;
+    margin-bottom: 10px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th {
+    border: 3px solid black;
+
+
+}
+
+footer {
+    border-radius: 10px;
+    text-align: center;
+    background-color: #F9F9DC;
+
+}
+
+div {
+
+    text-align: right;
+    height: 50%;
+    width: 50%;
+
+
+}
