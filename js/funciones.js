@@ -87,6 +87,9 @@ function agregarCarrera(event) {
             sistema.agregarCarrera(carr);
             document.getElementById("formCarreras").reset();
 
+            alert("Carrera agregada con exito");
+
+
             mostrarSelect();
             datosInsc();
             drawRegionsMap();
@@ -199,6 +202,9 @@ function agregarCorredor(event) {
         } else {
 
             sistema.agregarCorredor(corr);
+
+            alert("Corredor agregado con exito.");
+
             datosInsc();
 
         }
